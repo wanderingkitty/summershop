@@ -1,0 +1,36 @@
+.home-page {
+	display: grid;
+	grid-template-columns: repeat(3, 1fr); 
+	gap: 10px; 
+	justify-content: start;
+	margin: 1em 10em;
+	padding: 0 10em; 
+}
+
+.home-page > div {
+	display: flex;
+}
+
+.home-page img {
+	max-width: 100%; 
+	width: 270px;
+	height: auto; 
+}
+
+.category-container {
+	text-align: center;
+}
+
+.image-with-text {
+	position: relative;
+	display: inline-block;
+}
+
+.image-with-text h2 {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	margin: 0;
+	color: white;
+}

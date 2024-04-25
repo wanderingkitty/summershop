@@ -1,0 +1,68 @@
+html {
+  background-color: #FFC87A;
+}
+
+body {
+	margin: 0;
+	padding: 0;
+  font-family: "BioRhyme", serif;
+  background-image: url('./assets/wavesand.svg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  width: 100%; 
+  min-height: 100vh; /* Set minimum height to 100% of the viewport height */
+  position: relative; /* Set body position to relative */
+}
+
+.app {
+	max-width: 100vw;
+	margin: 0;
+	padding: 0;
+  padding-bottom: 50px; /* Add padding bottom to accommodate footer */
+}
+
+header {
+  background-color: #001220;
+	display: flex;
+	flex-direction: column;
+	height: 8vh;
+	justify-content: center;
+	align-items: center;
+}
+
+.header-links {
+  color: #fff; 
+  text-decoration: none;
+  margin-right: 20px; 
+  margin-left: 1em;
+}
+
+.logo-header {
+  position: relative;
+  top: 1em;
+}
+
+.logo-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 12vh;
+}
+
+h1 {
+	font-weight: 800;
+}
+
+.logo-footer {
+  width: 100px;
+  margin: 0, auto;
+}
+
+footer {
+  color: #fff;
+  text-align: center;
+  background-color: #001220;
+  position: absolute; 
+  bottom: 0; 
+  width: 100%; 
+}
