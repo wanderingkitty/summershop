@@ -1,24 +1,38 @@
+* {
+	font-family: "BioRhyme", serif;
+
+}
+
+
+
 .home-page {
-	display: grid;
-	grid-template-columns: repeat(3, 1fr); 
-	gap: 10px; 
-	justify-content: start;
-	margin: 1em 10em;
-	padding: 0 10em; 
+	/* display: grid;
+	grid-template-columns: repeat(3, 0.1fr);  */
+	display: flex;
+	flex-direction: column;
+	justify-content: center; 
+	align-items: center; 
+	margin: 0 auto;
+	gap: 10px;
+	grid-row-gap: 5px;
+	background-image: url('../assets/wavesand.svg');
+	background-size: cover;
+	background-repeat: no-repeat;
 }
 
 .home-page > div {
 	display: flex;
 }
 
-.home-page img {
-	max-width: 100%; 
-	width: 270px;
+.category-pictures {
+	width: 250px;
 	height: auto; 
 }
 
 .category-container {
 	text-align: center;
+	justify-content: center;
+	margin-top: 4em;
 }
 
 .image-with-text {
@@ -33,4 +47,76 @@
 	transform: translate(-50%, -50%);
 	margin: 0;
 	color: white;
+}
+
+.products-main-section {
+	display: flex;
+	flex-direction: column;
+}
+
+.name-price-container{
+	display: flex;
+	flex-direction: row;
+	gap: 45px;
+}
+
+.products-section{
+	display: grid;
+	grid-template-columns: repeat(4, 0.1fr); 
+	gap: 20px;
+}
+
+.product-box {
+	width: 180px;
+	height: 135px;
+	border: 1px solid black;
+
+}
+
+.sort-by-btn {
+	background-color:#001220;
+	color:white;
+	border: none;
+	margin-right: 2em;
+	margin-bottom: 2em;
+	height: 45px;
+	width: 150px;
+	border-radius: 15px;
+	cursor: pointer;
+}
+
+.sort-btn-container {
+	display: flex;
+	flex-direction: row;
+}
+
+.add-view-btn{
+	margin-top: 0.5em;
+	display: flex;
+	gap:25px;
+}
+
+.product-container {
+	height: 230px;
+	background-color: white;
+	display: flex;
+    flex-direction: column;
+	align-items:center;
+}
+
+.view-btn {
+	background-color:#FDFED2;
+	border: 1px solid black;
+	text-align: center;
+	border-radius:10px;
+	cursor:pointer;
+}
+
+.add-btn {
+	background-color:#001220;
+	color:white;
+	border: 1px solid black;
+	text-align: center;
+	border-radius:10px;
+	cursor:pointer;
 }

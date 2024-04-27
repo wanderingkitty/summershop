@@ -6,12 +6,16 @@ body {
 	margin: 0;
 	padding: 0;
   font-family: "BioRhyme", serif;
-  background-image: url('./assets/wavesand.svg');
+  /* background-image: url('./assets/wavesand.svg');
   background-size: cover;
-  background-repeat: no-repeat;
+  background-repeat: no-repeat; */
   width: 100%; 
-  min-height: 100vh; /* Set minimum height to 100% of the viewport height */
-  position: relative; /* Set body position to relative */
+  min-height: 100vh;
+  position: relative; 
+}
+
+a{
+  text-decoration: none;
 }
 
 .app {
@@ -28,6 +32,9 @@ header {
 	height: 8vh;
 	justify-content: center;
 	align-items: center;
+  position: sticky;
+  top: 0; /* Add top value for sticky position */
+  z-index: 1000;
 }
 
 .header-links {
@@ -35,6 +42,13 @@ header {
   text-decoration: none;
   margin-right: 20px; 
   margin-left: 1em;
+}
+
+.header-row {
+  display: flex;
+	align-items: center;
+	justify-content: space-between;
+	width: 80vw;
 }
 
 .logo-header {
@@ -47,6 +61,7 @@ header {
   justify-content: center;
   align-items: center;
   height: 12vh;
+  
 }
 
 h1 {
@@ -58,11 +73,15 @@ h1 {
   margin: 0, auto;
 }
 
-footer {
+/* footer {
   color: #fff;
   text-align: center;
   background-color: #001220;
   position: absolute; 
   bottom: 0; 
   width: 100%; 
+} */
+
+.shopping-cart-header {
+  width: 40px;
 }
