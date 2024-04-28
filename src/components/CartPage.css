@@ -1,5 +1,9 @@
 body {
     min-height: 100vh;
+    font-family: "BioRhyme", serif;
+    background-image: url('../assets/wavesand.svg');
+    background-size: cover;
+    background-repeat: no-repeat;
 }
 
 .cart-page-container {
@@ -114,3 +118,4 @@ label {
 	border:none;
 	cursor:pointer;
 }
+

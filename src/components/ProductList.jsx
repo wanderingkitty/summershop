@@ -70,11 +70,19 @@ const ProductList = () => {
 		setProducts(sortedProducts);
 	};
 
+	const handleSortByHighPrice = () => {
+		const sortedProducts = [...products].sort((a, b) => b.price - a.price);
+		setProducts(sortedProducts);
+	};
+	
+
 	//function for sorting items by name
 	const handleSortByName = () => {
 		const sortedProducts = [...products].sort((a, b) => a.name.localeCompare(b.name));
 		setProducts(sortedProducts);
 	}
+
+	
 	
 
 	return (
@@ -82,7 +90,8 @@ const ProductList = () => {
 				<h2>Products</h2>
 				<div className='sort-btn-container'>
 					<button className='sort-by-btn' onClick={handleSortByName} >Sort by name</button>
-					<button className='sort-by-btn' onClick={handleSortByPrice}>Sort by price</button>
+					<button className='sort-by-btn' onClick={handleSortByPrice}>Sort by lowest price</button>
+					<button className='sort-by-btn' onClick={handleSortByHighPrice }>Sort by highest price</button>
 				</div>
 			<div className='products-section'>
 				{products.map(product => (

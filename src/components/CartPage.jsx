@@ -1,6 +1,6 @@
 import React from "react";
 import { useCartStore } from '../data/shoppingCart.js'
-import '../index.css';
+// import '../index.css';
 import './CartPage.css'
 import TrashDeleteImg from '../assets/delete.png'
 

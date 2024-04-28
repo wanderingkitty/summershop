@@ -48,6 +48,7 @@ import Cart from '../assets/shopping-cart-white.png'
 import Login from '../assets/login.png';
 import Footer from "../components/Footer";
 import CartPage from "../components/CartPage";
+import CartIndicator from "../components/CartIndicator";
 
 
 const Root = () => {
@@ -68,7 +69,10 @@ const Root = () => {
 
 		<div className="header-row">
 		    <NavLink to="/Home" className="header-links">Home</NavLink>
+			<div>
 		<NavLink to="/cart"> <img className="shopping-cart-header" src={Cart} alt="" /> </NavLink>
+			<CartIndicator/>
+			</div>
             </div>
 		</header>
 

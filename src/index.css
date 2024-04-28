@@ -23,7 +23,7 @@ header {
   background-color: #001220;
 	display: flex;
 	flex-direction: column;
-	height: 8vh;
+	height: 10vh;
 	justify-content: center;
 	align-items: center;
   position: sticky;
@@ -77,7 +77,12 @@ h1 {
 } */
 
 .shopping-cart-header {
-  width: 40px;
+  width: 40px; /* Ensure this matches the actual size of the cart icon */
+  height: 40px; /* This might be needed if your icon has a specific height */
+  position: relative;
+  display: flex; /* Helps center content by default, useful if the icon is not filling the container */
+  align-items: center;
+  justify-content: center;
 }
 
 footer {
@@ -104,4 +109,18 @@ footer {
 .info address, .info p, .action-buttons button, .login-btn a {
   margin: 5px 0;
   line-height: 1.5;
+}
+
+.cart-indicator {
+  position: absolute;
+  top: 11px; 
+  transform: translate(50%, -50%); /* Centers the indicator on the top-right corner of the icon */
+}
+
+.cart-indicator span {
+  background-color: rgb(0, 187, 255);
+  color: white;
+  border-radius: 50%;
+  padding: 2px 6px;
+  font-size: 0.75rem;
 }

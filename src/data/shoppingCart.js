@@ -6,7 +6,7 @@ export const useCartStore = create ((set) => ({
 	deleteProduct: (key) => set(state => ({
 		items: state.items.filter(item => item.key !== key)
 	  })),
-	  
+
 	addItem: (newItem) => set((state) =>{
 		const existingItem = state.items.find(item => item.key === newItem.key)
 		if (existingItem) {
@@ -20,7 +20,11 @@ export const useCartStore = create ((set) => ({
 				items: [ ...state.items, { ...newItem, quantity: 1 }]
 			}
 		}
-	})
+	}),
 
+	totalitems: () => {
+		const { items } = get()
+		return items.reduce((total, item) => total + item.quantity, 0)  
+	}
 
 }) )
