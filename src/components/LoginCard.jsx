@@ -16,7 +16,7 @@ const LoginCard = () => {
 
     function checkPassword() {
         if (password.length === 0) {
-            setErrorMessage('Lösenordsfältet kan inte vara tomt.');
+            setErrorMessage('Password input cannot be empty.');
         } else if (password !== 'mums') {
             setErrorMessage('Fel lösenord.');
         }

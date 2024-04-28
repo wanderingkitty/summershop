@@ -42,6 +42,7 @@ import { createHashRouter } from 'react-router-dom'
 import Root from './Root.jsx'
 import HomePage from './HomePage.jsx';
 import LoginPage from './LoginPage.jsx'
+import CartPage from '../components/CartPage.jsx';
 
 const router = createHashRouter([
 	{
@@ -64,6 +65,10 @@ const router = createHashRouter([
 			{
 				path: '/Login',
 				element: <LoginPage />
+			},
+			{
+				path: '/Cart',
+				element: <CartPage />
 			},
 
 		]

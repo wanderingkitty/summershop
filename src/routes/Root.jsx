@@ -46,6 +46,8 @@ import '../index.css'
 import Logo from '../assets/LOGO.svg';
 import Cart from '../assets/shopping-cart-white.png'
 import Login from '../assets/login.png';
+import Footer from "../components/Footer";
+import CartPage from "../components/CartPage";
 
 
 const Root = () => {
@@ -75,7 +77,9 @@ const Root = () => {
 		</main>
 				
 		<footer>
-		<NavLink to='/login'> <img className="logo-footer" src={Login} alt="" /> </NavLink>
+		<NavLink to='/login'> <img className="logo-footer" src={Login} alt="Link to login image" /> 
+		</NavLink>
+		<Footer/>
 		</footer>
 
 	</div>

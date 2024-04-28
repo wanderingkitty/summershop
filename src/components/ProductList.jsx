@@ -34,26 +34,55 @@ function withKey(doc) {
 const ProductList = () => {
     const [products, setProducts] = useState([])
 	const addItem = useCartStore((state) => state.addItem)
-    
+    const [originalProducts, setOriginalProducts] = useState([]);
+
     useEffect(() => {
         const fetchProducts = async () => {
             const docs = await getData();
             const products = docs.docs.map(doc => withKey(doc))
+			const fetchedProducts = docs.docs.map(doc => withKey(doc));
             setProducts(products)
+			setOriginalProducts(fetchedProducts);
             console.log(products)
+			console.log(fetchedProducts);
         };
         
         fetchProducts()
         
     }
     , [])
-    
+
+	//Фунция для обработки добавления товара в корзину
+	const handleAddToCart = (product) => {
+			addItem({
+				key: product.key,
+				name: product.name, 
+				price: product.price,
+				imageURL: product.imageURL
+			})
+			console.log('added to cart', product.name);
+	}
+
+ 
+	// function for sorting items by price
+    const handleSortByPrice = () => {
+		const sortedProducts = [...products].sort((a, b) => a.price - b.price);
+		setProducts(sortedProducts);
+	};
+
+	//function for sorting items by name
+	const handleSortByName = () => {
+		const sortedProducts = [...products].sort((a, b) => a.name.localeCompare(b.name));
+		setProducts(sortedProducts);
+	}
+	
+
 	return (
 		<section className="products-main-section">
 				<h2>Products</h2>
 				<div className='sort-btn-container'>
-					<button className='sort-by-btn'>Sort by name</button>
-					<button className='sort-by-btn'>Sort by price</button>
+					<button className='sort-by-btn' onClick={handleSortByName} >Sort by name</button>
+					<button className='sort-by-btn' onClick={handleSortByPrice}>Sort by price</button>
 				</div>
 			<div className='products-section'>
 				{products.map(product => (
@@ -67,7 +96,7 @@ const ProductList = () => {
 						</div>
 						<div className="add-view-btn">
 							<button className='view-btn'>View</button>
-							<button className='add-btn'>Add</button>
+							<button className='add-btn' onClick={() => handleAddToCart(product) } >Add</button>
 						</div>
 					</div>
 				))}
