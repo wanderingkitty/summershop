@@ -6,29 +6,34 @@ body {
     background-repeat: no-repeat;
 }
 
+h2 {
+    text-align: center;
+    font-size: 2.5em;
+}
+
 .cart-page-container {
     display: flex;
     justify-content: space-between;
-    padding: 20px;
+    padding: 10px;
 }
 
 
 .cart-items-container {
-    flex: 1; /* Takes up half of the space */
-    margin-right: 20px; /* Adds some space between the cart items and the checkout form */
+    flex: 1; 
+    margin-right: 20px; 
 }
 
 .input-order {
-    flex: 1; /* Takes up the other half of the space */
+    flex: 1; 
     display: flex;
     flex-direction: column;
-    align-items: center; /* Centers the form in the checkout section */
+    align-items: center; 
 }
 
 .cart-container {
     display: flex;
 	flex-direction: column;
-    align-items: center; 
+    /* align-items: center;  */
     margin-top: 4em;
 }
 
@@ -36,7 +41,7 @@ body {
     display: flex;
     justify-content: space-between;
 	gap: 10px;
-	width: 450px;
+	/* width: 450px; */
 }
 
 hr {
@@ -45,20 +50,25 @@ hr {
     height: 1px;
     background-color: #001220;
     box-shadow: 0px 2px 3px rgba(0, 18, 32, 0.2);
-    margin: 20px 0;
+    margin: 15px 0;
 }
 
 .product-img {
     width: 120px;
+    border:1px solid #001220;
 }
 
 .cart-product-container hr {
-	width: 100%; /* Ensures hr takes full width */
-    border: none; /* Removes default border */
-    height: 1px; /* Set desired thickness */
-    background-color: #001220; /* Same as your border color for consistency */
-    box-shadow: 0px 2px 3px rgba(0, 18, 32, 0.2); /* Your existing shadow */
+	width: 100%; 
+    border: none; 
+    height: 1px; 
+    background-color: #001220; 
+    box-shadow: 0px 2px 3px rgba(0, 18, 32, 0.2); 
     margin: 10px 0;
+}
+
+.cart-product-container p {
+    margin-top: 1.3em;
 }
 
 .delivery-input, .input-cart {
@@ -73,6 +83,7 @@ hr {
 
 .input-order {
     margin: 0 auto;
+    border-left: 1px solid #001220;
 
 }
 
@@ -117,5 +128,32 @@ label {
 	background:none;
 	border:none;
 	cursor:pointer;
+    margin: 0;
 }
 
+.delete-btn {
+    margin-top: 1.2em;
+}
+
+.quantity-controls {
+    display: inline-flex;
+}
+
+.quantity-controls button {
+    margin: 1em 5px;
+    background-color: #001220;
+    color:white;
+    border: none;
+    border-radius:15px;
+    /* padding: 5px 10px; */
+    font-size: 1.3rem;
+    cursor: pointer;
+    height: 35px;
+    justify-content: center;
+    align-items:center;
+    text-align: center;
+}
+
+.quantity-controls span {
+    margin: 1.5em 1em;
+}

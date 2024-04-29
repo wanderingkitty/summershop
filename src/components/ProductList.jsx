@@ -36,6 +36,10 @@ const ProductList = () => {
 	const addItem = useCartStore((state) => state.addItem)
     const [originalProducts, setOriginalProducts] = useState([]);
 
+const [showDropdown, setShowdropdown] = useState(false)
+//Function for swithcing dropdown
+const toggleDropdown =  () => setShowdropdown(prev => !prev)
+
     useEffect(() => {
         const fetchProducts = async () => {
             const docs = await getData();
@@ -82,16 +86,22 @@ const ProductList = () => {
 		setProducts(sortedProducts);
 	}
 
-	
-	
-
 	return (
 		<section className="products-main-section">
-				<h2>Products</h2>
 				<div className='sort-btn-container'>
-					<button className='sort-by-btn' onClick={handleSortByName} >Sort by name</button>
+					{/* <button className='sort-by-btn' onClick={handleSortByName} >Sort by name</button>
 					<button className='sort-by-btn' onClick={handleSortByPrice}>Sort by lowest price</button>
-					<button className='sort-by-btn' onClick={handleSortByHighPrice }>Sort by highest price</button>
+					<button className='sort-by-btn' onClick={handleSortByHighPrice }>Sort by highest price</button> */}
+					<button className='sort-by-btn' onClick={toggleDropdown}>Sort by</button>
+					{showDropdown && (
+						<ul className='dropdown-menu'>
+							<li onClick={() => {handleSortByName(); toggleDropdown()}}>Sort by name</li>
+							<li onClick={() => {handleSortByPrice(); toggleDropdown()}}>Sort by lowest price </li>
+							<li onClick={() => {handleSortByHighPrice(); toggleDropdown()}}>Sort by highest price </li>
+						</ul>
+					)
+
+					}
 				</div>
 			<div className='products-section'>
 				{products.map(product => (
@@ -101,7 +111,7 @@ const ProductList = () => {
 						</div>
 						<div className='name-price-container'>
 							<div>{product.name}</div>
-							<div>{product.price}</div>
+							<div>{product.price} kr</div>
 						</div>
 						<div className="add-view-btn">
 							<button className='view-btn'>View</button>

@@ -40,9 +40,6 @@ const HomePage = () => {
     console.log("HomePage is rendering");
     return (
         <div className="home-page">
-            <h1>Home Page</h1>
-				
-			
             <ProductList />  
         </div>
     );

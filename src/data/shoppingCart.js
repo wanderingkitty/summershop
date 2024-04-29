@@ -6,6 +6,17 @@ export const useCartStore = create ((set) => ({
 	deleteProduct: (key) => set(state => ({
 		items: state.items.filter(item => item.key !== key)
 	  })),
+	  
+	  incrementQuantity: (key) => set((state) => ({
+		items: state.items.map(item =>
+		  item.key === key ? { ...item, quantity: item.quantity + 1 } : item
+		),
+	  })),
+	  decrementQuantity: (key) => set((state) => ({
+		items: state.items.map(item =>
+		  item.key === key ? { ...item, quantity: item.quantity - 1 } : item
+		).filter(item => item.quantity > 0)  
+	  })),
 
 	addItem: (newItem) => set((state) =>{
 		const existingItem = state.items.find(item => item.key === newItem.key)
@@ -22,9 +33,9 @@ export const useCartStore = create ((set) => ({
 		}
 	}),
 
-	totalitems: () => {
-		const { items } = get()
-		return items.reduce((total, item) => total + item.quantity, 0)  
-	}
+	// totalitems: () => {
+	// 	const { items } = get()
+	// 	return items.reduce((total, item) => total + item.quantity, 0)  
+	// }
 
 }) )

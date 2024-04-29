@@ -11,14 +11,17 @@ const LoginCard = () => {
     function checkUsername() {
         if (name.length === 0) {
             setNameTouched(true);
+        } else if (name !== 'admin') {
+            setErrorMessage('The username is incorrect')
+            
         }
     }
 
     function checkPassword() {
         if (password.length === 0) {
             setErrorMessage('Password input cannot be empty.');
-        } else if (password !== 'mums') {
-            setErrorMessage('Fel lösenord.');
+        } else if (password !== 'password') {
+            setErrorMessage('The password is incorrect.');
         }
         else {
             setErrorMessage('');

@@ -56,7 +56,8 @@
 .name-price-container{
 	display: flex;
 	flex-direction: row;
-	gap: 45px;
+	gap: 30px;
+	text-align: center;
 }
 
 .products-section{
@@ -66,9 +67,9 @@
 }
 
 .product-box {
-	width: 180px;
-	height: 135px;
-	border: 1px solid black;
+	width: 200px;
+	height: 155px;
+	border: 1px solid #001220;
 
 }
 
@@ -79,14 +80,15 @@
 	margin-right: 2em;
 	margin-bottom: 2em;
 	height: 45px;
-	width: 150px;
-	border-radius: 15px;
+	width: 100px;
+	border-radius: 15px 15px 0 0;
 	cursor: pointer;
 }
 
 .sort-btn-container {
 	display: flex;
 	flex-direction: row;
+	margin-top: 2em;
 }
 
 .add-view-btn{
@@ -98,7 +100,8 @@
 }
 
 .product-container {
-	height: 230px;
+	height: 270px;
+	width: 200px;
 	background-color: white;
 	display: flex;
     flex-direction: column;
@@ -121,4 +124,25 @@
 	text-align: center;
 	border-radius:10px;
 	cursor:pointer;
+}
+
+.dropdown-menu {
+    position: absolute;
+    background-color: white;
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+    z-index: 1;
+    width: 200px;
+    list-style: none;
+    padding: 10px;
+    margin-top: 2.8em;
+}
+
+.dropdown-menu li {
+    padding: 8px 16px;
+    cursor: pointer;
+}
+
+.dropdown-menu li:hover {
+    background-color: #f1f1f1;
+	text-decoration: underline;
 }
