@@ -1,4 +1,5 @@
-import React, { useState, useRef, useEffect } from 'react';
+import React, { useEffect } from 'react';
+import { useState } from 'react';
 import { Link, NavLink } from 'react-router-dom';
 
 const LoginCard = () => {
@@ -7,7 +8,8 @@ const LoginCard = () => {
     const [password, setPassword] = useState('');
     const [errorMessage, setErrorMessage] = useState('');
     const [usernameError, setUsernameError] = useState('');
- 
+
+    // Scroll to the top on component mount
     useEffect(() => {
         window.scrollTo({
             top: 0,
@@ -52,37 +54,30 @@ const LoginCard = () => {
     }
 
     return (
-        <div ref={loginRef}> {/* Attach the ref here */}
-            <div className='loggin-container'>
-                <div className="header">
-                    <div className="text">Login</div>
-                    <div className="underline">Only for employees*</div>
+        <div className='loggin-container'>
+            <div className="header">
+                <div className="text">Login</div>
+                <div className="underline">Only for employees*</div>
+            </div>
+            <div className="input-frame">
+                <div className="input">
+                    <input type="text" placeholder="Username" required
+                        className={nameClass}
+                        value={name}
+                        onChange={event => setName(event.target.value)}
+                        onBlur={() => setNameTouched(true)}
+                    />
+                    <p className={nameErrorClass}>{usernameError} &nbsp;</p>
                 </div>
-                <div className="input-frame">
-                    <div className="input">
-                        <input type="text" placeholder="Username" required
-                            className={nameClass}
-                            value={name}
-                            onChange={event => setName(event.target.value)}
-                            onBlur={() => setNameTouched(true)}
-                        />
-                        <p className={nameErrorClass}>{usernameError} &nbsp;</p>
-                    </div>
-                    <div className="input">
-                        <input type="password" placeholder="Password" onChange={(event) => setPassword(event.target.value)} />
-                        <p className="password-error">{errorMessage}</p>
-                    </div>
+                <div className="input">
+                    <input type="password" placeholder="Password" onChange={(event) => setPassword(event.target.value)} />
+                    <p className="password-error">{errorMessage}</p>
                 </div>
-                <div className="submit-container">
-                    <button className="submit" disabled={isSubmitDisabled} onClick={() => {
-                        validateForm();
-                        if (loginRef.current) {
-                            loginRef.current.scrollIntoView({ behavior: 'smooth' });
-                        }
-                    }}>
-                        Login
-                    </button>
-                </div>
+            </div>
+            <div className="submit-container">
+                <button className="submit" disabled={isSubmitDisabled} onClick={validateForm}>
+                    Login
+                </button>
             </div>
         </div>
     );
