@@ -42,12 +42,11 @@
 
 import { Link, NavLink, Outlet } from "react-router-dom"
 import React, { useEffect } from 'react';
-import '../index.css'
+import '../css/index.css'
 import Logo from '../assets/LOGO.svg';
 import Cart from '../assets/shopping-cart-white.png'
 import Login from '../assets/login.png';
 import Footer from "../components/Footer";
-import CartPage from "../components/CartPage";
 import CartIndicator from "../components/CartIndicator";
 
 

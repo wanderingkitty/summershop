@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { db } from '../data/firebase.js';
 import { collection, getDocs } from 'firebase/firestore/lite';
-import '../routes/HomePage.css';
+import '../css/HomePage.css';
 import { useCartStore } from '../data/shoppingCart.js';
 
 
@@ -10,18 +10,6 @@ async function getData () {
 	const querySnapshot = await getDocs(productCollection)
 	return querySnapshot 
 }
-
-// async function getData() {
-//     const productCollection = collection(db, 'products');
-//     try {
-//         const querySnapshot = await getDocs(productCollection);
-//         console.log("Fetched products:", querySnapshot.docs.map(doc => doc.data()));  // Log fetched data
-//         return querySnapshot;
-//     } catch (error) {
-//         console.error("Error fetching products:", error);
-//         return null;
-//     }
-// }
 
 
 // Davids magic function that he will probably explain in the future or something
@@ -35,6 +23,7 @@ const ProductList = () => {
     const [products, setProducts] = useState([])
 	const addItem = useCartStore((state) => state.addItem)
     const [originalProducts, setOriginalProducts] = useState([]);
+	const [viewedProductKey, setViewedProductKey] = useState(null);
 
 const [showDropdown, setShowdropdown] = useState(false)
 //Function for swithcing dropdown
@@ -56,7 +45,7 @@ const toggleDropdown =  () => setShowdropdown(prev => !prev)
     }
     , [])
 
-	//Фунция для обработки добавления товара в корзину
+	//function for adding items to cart 
 	const handleAddToCart = (product) => {
 			addItem({
 				key: product.key,
@@ -67,7 +56,7 @@ const toggleDropdown =  () => setShowdropdown(prev => !prev)
 			console.log('added to cart', product.name);
 	}
 
- 
+
 	// function for sorting items by price
     const handleSortByPrice = () => {
 		const sortedProducts = [...products].sort((a, b) => a.price - b.price);
@@ -85,6 +74,10 @@ const toggleDropdown =  () => setShowdropdown(prev => !prev)
 		const sortedProducts = [...products].sort((a, b) => a.name.localeCompare(b.name));
 		setProducts(sortedProducts);
 	}
+
+	const handleView = (key) => {
+        setViewedProductKey(prev => prev === key ? null : key);  
+    };
 
 	return (
 		<section className="products-main-section">
@@ -112,9 +105,10 @@ const toggleDropdown =  () => setShowdropdown(prev => !prev)
 						<div className='name-price-container'>
 							<div>{product.name}</div>
 							<div>{product.price} kr</div>
+							{viewedProductKey === product.key && <div className='description'>{product.description}</div>}
 						</div>
 						<div className="add-view-btn">
-							<button className='view-btn'>View</button>
+							<button className='view-btn' onClick={() => handleView(product.key)}>View</button>
 							<button className='add-btn' onClick={() => handleAddToCart(product) } >Add</button>
 						</div>
 					</div>

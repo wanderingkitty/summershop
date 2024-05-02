@@ -1,19 +1,27 @@
-import { useState } from 'react';
-import { Link } from 'react-router-dom';
+import React, { useState, useRef, useEffect } from 'react';
+import { Link, NavLink } from 'react-router-dom';
 
 const LoginCard = () => {
-
     const [name, setName] = useState('');
     const [nameTouched, setNameTouched] = useState(false);
     const [password, setPassword] = useState('');
     const [errorMessage, setErrorMessage] = useState('');
+    const [usernameError, setUsernameError] = useState('');
+ 
+    useEffect(() => {
+        window.scrollTo({
+            top: 0,
+            behavior: "smooth"
+        });
+    }, []);
 
     function checkUsername() {
         if (name.length === 0) {
-            setNameTouched(true);
+            setUsernameError('Please enter username.');
         } else if (name !== 'admin') {
-            setErrorMessage('The username is incorrect')
-            
+            setUsernameError('Incorrect username.');
+        } else {
+            setUsernameError('');
         }
     }
 
@@ -22,22 +30,18 @@ const LoginCard = () => {
             setErrorMessage('Password input cannot be empty.');
         } else if (password !== 'password') {
             setErrorMessage('The password is incorrect.');
-        }
-        else {
+        } else {
             setErrorMessage('');
         }
     }
 
     function validateForm() {
-        checkUsername()
-        checkPassword()
+        checkUsername();
+        checkPassword();
     }
 
-
-
-    const nameIsValid = name.length > 0;
-    const nameErrorMessage = nameIsValid ? '' : 'Please, enter username.';
-    const isSubmitDisabled = password.length === 0 || password !== 'mums' || !nameIsValid;
+    const nameIsValid = name === 'admin';
+    const isSubmitDisabled = password.length === 0 || password !== 'password' || !nameIsValid;
 
     let nameErrorClass = 'error ', nameClass = '';
     if (!nameTouched) {
@@ -48,7 +52,7 @@ const LoginCard = () => {
     }
 
     return (
-        <div>
+        <div ref={loginRef}> {/* Attach the ref here */}
             <div className='loggin-container'>
                 <div className="header">
                     <div className="text">Login</div>
@@ -62,28 +66,26 @@ const LoginCard = () => {
                             onChange={event => setName(event.target.value)}
                             onBlur={() => setNameTouched(true)}
                         />
-                        <p className={nameErrorClass}>{nameErrorMessage} &nbsp;</p>
+                        <p className={nameErrorClass}>{usernameError} &nbsp;</p>
                     </div>
                     <div className="input">
-                        <div className="input">
-                            <input type="password" placeholder="Password" onChange={(event) => setPassword(event.target.value)} />
-                            <p className="password-error">{errorMessage}</p>
-                        </div>
+                        <input type="password" placeholder="Password" onChange={(event) => setPassword(event.target.value)} />
+                        <p className="password-error">{errorMessage}</p>
                     </div>
                 </div>
-                {isSubmitDisabled ? <div className="submit-container">
-                    <button className="submit" onClick={validateForm}>Login</button>
+                <div className="submit-container">
+                    <button className="submit" disabled={isSubmitDisabled} onClick={() => {
+                        validateForm();
+                        if (loginRef.current) {
+                            loginRef.current.scrollIntoView({ behavior: 'smooth' });
+                        }
+                    }}>
+                        Login
+                    </button>
                 </div>
-                    :
-                    <div className="submit-container">
-                        <Link to="/Menyportal">
-                            <button className="submit">Logga in</button>
-                        </Link>
-                    </div>}
             </div>
         </div>
     );
 }
 
 export default LoginCard;
-

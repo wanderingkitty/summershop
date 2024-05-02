@@ -1,0 +1,155 @@
+html, body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  min-height: 100vh;
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: "BioRhyme", serif;
+  width: 100%; 
+  position: relative; 
+  background: linear-gradient(to right, #FFC87A, #F7770F);
+  min-height: 100vh;
+}
+
+header {
+  background-color: #001220;
+  display: flex;
+  flex-direction: column;
+  height: 10vh;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+  position: sticky;
+  top: 0; 
+  z-index: 1000;
+}
+
+.header-links {
+  color: #fff; 
+  text-decoration: none;
+  margin-right: 20px; 
+  margin-left: 1em;
+}
+
+.header-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  padding: 0 10px;
+}
+
+.logo-header {
+  position: relative;
+  top: 1em;
+}
+
+.logo-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 13vh;
+}
+
+h1 {
+  font-weight: 800;
+}
+
+.shopping-cart-header {
+  width: 40px;
+  height: 40px;
+  position: relative;
+  display: flex; 
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  margin-right: 20px; /* Adjust as necessary */
+}
+
+.cart-indicator {
+  position: absolute;
+  top: 1px;
+  right: 35px; 
+  background-color: rgb(0, 187, 255);
+  color: white;
+  border-radius: 50%;
+  padding: 2px 6px;
+  font-size: 0.75rem;
+}
+
+.total-price-text {
+  position: absolute;
+  right: 20px; 
+  top: 2.3em;
+  transform: translateY(-50%);
+  font-size: 16px;
+  color: #fff;
+  width: 100px;
+}
+
+footer {
+  background-color: #001220;
+  color: #fff;
+  padding: 20px 10px;
+  text-align: center;
+  width: 100%;
+}
+
+.footer-container {
+  max-width: 1200px;
+  margin: auto;
+}
+
+.logo-footer {
+  width: 150px;
+}
+
+@media (min-width: 770px) {
+  footer {
+    padding: 20px;
+  }
+
+  .footer-container {
+    display: flex;
+    justify-content: space-between;
+    text-align: left;
+  }
+
+  .info, .login-btn{
+    flex: 1;
+    margin-bottom: 0;
+  }
+
+  .info {
+    margin-right: 20px;
+  }
+}
+
+@media (max-width: 805px) {
+  body {
+    background: linear-gradient(to right, #FFC87A, #F7770F);
+    background-size: cover;
+    background-position: center;
+  }
+
+  .logo-container {
+    height: auto;
+    font-size: 0.8em;
+  }
+
+  .logo-header {
+    height: auto;
+  }
+
+  header {
+    font-size: 15px;
+  }
+}

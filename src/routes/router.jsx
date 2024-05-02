@@ -43,6 +43,7 @@ import Root from './Root.jsx'
 import HomePage from './HomePage.jsx';
 import LoginPage from './LoginPage.jsx'
 import CartPage from '../components/CartPage.jsx';
+import EditPage from './EditPage.jsx';
 
 const router = createHashRouter([
 	{
@@ -70,6 +71,10 @@ const router = createHashRouter([
 				path: '/Cart',
 				element: <CartPage />
 			},
+			{
+				path: '/Edit',
+				element: <EditPage />
+			}
 
 		]
 	},

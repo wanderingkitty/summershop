@@ -2,9 +2,10 @@ import React from 'react';
 import { Routes, Route, HashRouter } from 'react-router-dom';
 import Root from './Root';
 import ShopPage from './ShopPage';
-import CartPage from './components/CartPage';
+import CartPage from '../components/CartPage';
 import LoginPage from './LoginPage';
-import HomePage from './routes/HomePage';
+import HomePage from '../routes/HomePage';
+import EditPage from '../routes/EditPage';
 
 const App = () => {
     return (
@@ -16,6 +17,7 @@ const App = () => {
                     <Route path="shop" element={<ShopPage />} />
                     <Route path="cart" element={<CartPage />} />
                     <Route path="login" element={<LoginPage />} />
+                    <Route path="edit" element={<EditPage />} />
                 </Route>
             </Routes>
         </HashRouter>

@@ -5,10 +5,9 @@
 	margin: 0;
 	padding: 0;
   font-family: "BioRhyme", serif;
-  background-image: url('../assets/layered-waves-haikei (3).svg');
-  background-size: cover;
-  background-repeat: no-repeat;
+  /* background: linear-gradient(to bottom, #FFC87A, #001220); */
   min-height: 100vh;
+
 }
 
 .header{
@@ -20,23 +19,16 @@
     margin-top: 30px;
 }
 
-/* header {
-	background-color: #001220;
-	display: flex;
-	flex-direction: column;
-	height: 8vh;
-	justify-content: center;
-	align-items: center;
-} */
 
 .text {
-    color:white;
+    color:#001220;
     font-size: 40px;
     font-weight: 700;
 }
 
 .underline {
-	color:white;
+    color:#001220;
+
 }
 
 
@@ -55,6 +47,8 @@
     height: 50px;
     background: #eaeaea;
     border-radius: 6px;
+
+
 }
 
 .input input{
@@ -87,6 +81,8 @@
     font-size: 20px;
     font-weight: 700;
     cursor: pointer;
+    border: 1px solid #001220;
+
 }
 
 .password-error{
@@ -97,41 +93,43 @@
     color: rgb(224, 48, 48);
 }
 input.valid {
-    border-left: 5px solid #1d7f56;
+    border-left: 5px solid #1bbe7a;
 
 }
 
+
+
 /* Media Queries */
 @media (max-width: 768px) {
-    .loggin-container, .input {
-        width: 90%;
-    }
+
 
     .text {
         font-size: 36px;
     }
 
-    .input input {
-        width: 85%;
-    }
-
-    
-    
-}
-
-@media (max-width: 480px) {
-    .container {
-        margin-top: 100px;
-        padding-bottom: 15px;
-    }
-
-    .text {
-        font-size: 12px;
-    }
-
-    .submit-container {
+    .login-container {
+        display: flex;
         flex-direction: column;
     }
 
-    
+     /* input {
+        display:flex;
+        flex-direction: column;
+        width: 250px;
+    } */
+
+ .input input  {
+        display: flex;
+        flex-direction: column;
+        width: 150px;
+    }
+
+    .input {
+        width: 250px;
+        font-size: 0.8em;
+
+    }
+
+   
+  
 }

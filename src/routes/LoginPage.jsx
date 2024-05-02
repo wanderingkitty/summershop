@@ -1,6 +1,6 @@
 import LoginCard from '../components/LoginCard.jsx'
 // import '../index.css';
-import './LoginPage.css';
+import '../css/LoginPage.css';
 
 const LoginPage = () => {  
   return (
