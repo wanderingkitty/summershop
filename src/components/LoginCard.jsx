@@ -1,15 +1,15 @@
-import React, { useEffect } from 'react';
-import { useState } from 'react';
-import { Link, NavLink } from 'react-router-dom';
+import React, { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom'; 
+
 
 const LoginCard = () => {
     const [name, setName] = useState('');
-    const [nameTouched, setNameTouched] = useState(false);
     const [password, setPassword] = useState('');
-    const [errorMessage, setErrorMessage] = useState('');
     const [usernameError, setUsernameError] = useState('');
+    const [passwordError, setPasswordError] = useState('');
+    const navigate = useNavigate(); 
 
-    // Scroll to the top on component mount
+    //scrolling to top
     useEffect(() => {
         window.scrollTo({
             top: 0,
@@ -17,41 +17,41 @@ const LoginCard = () => {
         });
     }, []);
 
-    function checkUsername() {
+    const validateUsername = () => {
         if (name.length === 0) {
             setUsernameError('Please enter username.');
+            return false;
         } else if (name !== 'admin') {
             setUsernameError('Incorrect username.');
-        } else {
-            setUsernameError('');
+            return false;
         }
-    }
+        setUsernameError('');
+        return true;
+    };
 
-    function checkPassword() {
+    const validatePassword = () => {
         if (password.length === 0) {
-            setErrorMessage('Password input cannot be empty.');
+            setPasswordError('Password input cannot be empty.');
+            return false;
         } else if (password !== 'password') {
-            setErrorMessage('The password is incorrect.');
-        } else {
-            setErrorMessage('');
+            setPasswordError('The password is incorrect.');
+            return false;
         }
-    }
+        setPasswordError('');
+        return true;
+    };
+    
+    const handleFormSubmit = (event) => {
+        event.preventDefault();  
+        const isUsernameValid = validateUsername();
+        const isPasswordValid = validatePassword();
+        
+        if (isUsernameValid && isPasswordValid) {
+            navigate('/Edit');  
+            console.log('Login successful');
+        }
+    };
 
-    function validateForm() {
-        checkUsername();
-        checkPassword();
-    }
-
-    const nameIsValid = name === 'admin';
-    const isSubmitDisabled = password.length === 0 || password !== 'password' || !nameIsValid;
-
-    let nameErrorClass = 'error ', nameClass = '';
-    if (!nameTouched) {
-        nameErrorClass += 'hidden';
-    } else {
-        nameErrorClass += nameIsValid ? 'hidden' : 'invalid';
-        nameClass += nameIsValid ? 'valid' : 'invalid';
-    }
 
     return (
         <div className='loggin-container'>
@@ -61,23 +61,28 @@ const LoginCard = () => {
             </div>
             <div className="input-frame">
                 <div className="input">
-                    <input type="text" placeholder="Username" required
-                        className={nameClass}
+                    <input type="text" placeholder="Username"
                         value={name}
-                        onChange={event => setName(event.target.value)}
-                        onBlur={() => setNameTouched(true)}
+                        onChange={e => setName(e.target.value)}
+                        onBlur={validateUsername}
+                        className={usernameError ? 'invalid' : ''}
                     />
-                    <p className={nameErrorClass}>{usernameError} &nbsp;</p>
+                    <p className="error">{usernameError}</p>
                 </div>
                 <div className="input">
-                    <input type="password" placeholder="Password" onChange={(event) => setPassword(event.target.value)} />
-                    <p className="password-error">{errorMessage}</p>
+                    <input type="password" placeholder="Password"
+                        onChange={e => setPassword(e.target.value)}
+                        onBlur={validatePassword}
+                        className={passwordError ? 'invalid' : ''}
+                    />
+                    <p className="error">{passwordError}</p>
                 </div>
             </div>
             <div className="submit-container">
-                <button className="submit" disabled={isSubmitDisabled} onClick={validateForm}>
-                    Login
-                </button>
+                
+            <button className="submit" onClick={handleFormSubmit}>Login</button>
+
+            
             </div>
         </div>
     );
