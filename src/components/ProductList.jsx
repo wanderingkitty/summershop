@@ -11,7 +11,6 @@ async function getData () {
 	return querySnapshot 
 }
 
-
 // Davids magic function that he will probably explain in the future or something
 function withKey(doc) {
     let o = doc.data();
@@ -24,8 +23,8 @@ const ProductList = () => {
 	const addItem = useCartStore((state) => state.addItem)
     const [originalProducts, setOriginalProducts] = useState([]);
 	const [viewedProductKey, setViewedProductKey] = useState(null);
+	const [showDropdown, setShowdropdown] = useState(false)
 
-const [showDropdown, setShowdropdown] = useState(false)
 //Function for swithcing dropdown
 const toggleDropdown =  () => setShowdropdown(prev => !prev)
 
@@ -36,8 +35,8 @@ const toggleDropdown =  () => setShowdropdown(prev => !prev)
 			const fetchedProducts = docs.docs.map(doc => withKey(doc));
             setProducts(products)
 			setOriginalProducts(fetchedProducts);
-            console.log(products)
-			console.log(fetchedProducts);
+            // console.log(products)
+			// console.log(fetchedProducts);
         };
         
         fetchProducts()

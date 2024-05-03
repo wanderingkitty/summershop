@@ -1,21 +1,3 @@
-// import React from 'react';
-// import { BrowserRouter, HashRouter } from 'react-router-dom';
-// import { createRoot } from 'react-dom/client'; 
-// import Root from './routes/Root';
-// import LoginPage from './routes/LoginPage';
-// import CartPage from './components/CartPage';
-// import HomePage from './routes/HomePage';
-
-
-// const root = createRoot(document.getElementById('root'));
-
-// root.render(
-//   <HashRouter>
-//     <Root />
-//   </HashRouter>
-// );
-
-
 import React from 'react'
 import ReactDOM from 'react-dom/client'
 import './css/index.css'

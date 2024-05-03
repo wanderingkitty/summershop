@@ -5,7 +5,7 @@ import React from 'react';
 
 
 const HomePage = () => {
-    console.log("HomePage is rendering");
+    // console.log("HomePage is rendering");
     return (
         <div className="home-page">
             <ProductList />  

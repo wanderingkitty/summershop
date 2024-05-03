@@ -1,4 +1,4 @@
-// categoryList.js
+// categoryList.js not currently using it
 import { create } from 'zustand';
 
 const useStore = create((set) => ({
