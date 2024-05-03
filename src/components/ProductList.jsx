@@ -75,7 +75,7 @@ const toggleDropdown =  () => setShowdropdown(prev => !prev)
 	}
 
 	const handleView = (key) => {
-        setViewedProductKey(prev => prev === key ? null : key);  
+		setViewedProductKey(prevKey => prevKey === key ? null : key); 
     };
 
 	return (
@@ -104,7 +104,9 @@ const toggleDropdown =  () => setShowdropdown(prev => !prev)
 						<div className='name-price-container'>
 							<div>{product.name}</div>
 							<div>{product.price} kr</div>
-							{viewedProductKey === product.key && <div className='description'>{product.description}</div>}
+							{viewedProductKey === product.key && (
+                        <div className='description' style={{ opacity: 1 }}>{product.description}</div>
+                    )}
 						</div>
 						<div className="add-view-btn">
 							<button className='view-btn' onClick={() => handleView(product.key)}>View</button>

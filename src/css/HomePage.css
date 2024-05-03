@@ -115,28 +115,26 @@
 	justify-content: space-between;
 	overflow: hidden;
 }
+
 .description {
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
-    height: 100%;
-    background-color: rgba(0,0,0,0.7); /* Semi-transparent background */
-    color: white;
+    height: 230px;
+	background-color: rgba(0, 187, 255, 0.893);	
+	font-size: 0.9em;
+    color: #001220;
+	border: 1px solid #001220;
     display: flex;
     align-items: center;
     justify-content: center;
-    opacity: 0;
+    opacity: 0; /* Initially hidden */
     transition: opacity 0.3s ease-in-out;
     padding: 10px;
     box-sizing: border-box;
     text-align: center;
 }
-
-.product-container:hover .description {
-    opacity: 1; /* Make the description visible on hover */
-}
-
 
 .view-btn {
 	background-color:#FDFED2;
