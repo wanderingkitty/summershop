@@ -126,7 +126,7 @@ label {
 
 .input-order p {
 	font-weight: 800;
-	font-size: 1.3em;
+	font-size: 1em;
 }
 
 .delete-from-cart-btn {
@@ -205,25 +205,16 @@ label {
         gap: 0;
     }
 
-    p, h3 {
+   .cart-product-container p, h3 {
         margin: 0.5em;
         font-size: 1.2em;
     }
 
-        button {
-        height: 35px;
-        width: 40px;
-        text-align: center;
-        font-size: 1.5em;
-    }
-
-    .quantity-controls {
+    .quantity-controls button  {
         font-size: 1.5em;
     }
 
     .quantity-controls span {
-        position: relative;
-        bottom: 0.7em;
         margin: 1.5em;
         margin-bottom: 0;
     }

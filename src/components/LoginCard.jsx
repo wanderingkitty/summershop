@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom'; 
-
+import '../css/EditCard.css'
 
 const LoginCard = () => {
     const [name, setName] = useState('');
@@ -40,7 +40,7 @@ const LoginCard = () => {
         setPasswordError('');
         return true;
     };
-    
+
     const handleFormSubmit = (event) => {
         event.preventDefault();  
         const isUsernameValid = validateUsername();

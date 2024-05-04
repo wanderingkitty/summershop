@@ -1,5 +1,4 @@
 
-
 .edit-form {
     display: flex;
     align-items: flex-start; 
@@ -93,6 +92,10 @@ h1 {
     height: 60px;
     padding: 8px;
 	border-radius:10px;
+}
+
+.error {
+	color: #CC444B;
 }
 
 @media (max-width: 768px) {
