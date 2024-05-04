@@ -92,11 +92,14 @@ input {
 	border-radius:10px;
 	border: 1px solid #001220;
 	height: 50px;
+    width: 220px;
+    
 }
 
 label {
 	font-weight: bolder;
-	font-size: 1em;
+	font-size: 1em;    
+    flex-direction: column;
 }
 
 .name-lastname-input{
@@ -106,7 +109,7 @@ label {
 }
 
 .input-cart input {
-    width: 270px;
+    width: 220px;
 
 }
 
@@ -127,7 +130,7 @@ label {
 .input-order p {
 	font-weight: 800;
 	font-size: 1em;
-}
+}   
 
 .delete-from-cart-btn {
 	background:none;

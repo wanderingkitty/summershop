@@ -78,6 +78,7 @@ const CartPage = () => {
 		if (isNameValid && isEmailValid && isAddressValid && isCityValid) {
 			setPurchaseConfirmed(true);
 			useCartStore.getState().clearCart();
+			window.scrollTo({ top: 0, behavior: 'smooth' });
 			console.log('thank you, your purchase is being proceed');
 		} else {
 			console.log('please correct errors');
@@ -137,10 +138,10 @@ const CartPage = () => {
 						<section className="input-order">
 						<h1>Checkout</h1>
 						<div className="input-cart">
-						<label>Email: 
+						<label>Email:</label>
 						<input type="text" value={email} onChange={e => setEmail(e.target.value)} />
 						{emailError && <p className="error">{emailError}</p>}
-						</label>
+					
 						</div>
 						<div className="delivery-input">
 						<label> Delivery information </label>
