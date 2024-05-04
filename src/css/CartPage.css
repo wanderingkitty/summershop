@@ -203,9 +203,30 @@ label {
         margin: 0 auto;
         padding: 0;
         gap: 0;
-        justify-content: center;
     }
 
+    p, h3 {
+        margin: 0.5em;
+        font-size: 1.2em;
+    }
+
+        button {
+        height: 35px;
+        width: 40px;
+        text-align: center;
+        font-size: 1.5em;
+    }
+
+    .quantity-controls {
+        font-size: 1.5em;
+    }
+
+    .quantity-controls span {
+        position: relative;
+        bottom: 0.7em;
+        margin: 1.5em;
+        margin-bottom: 0;
+    }
 
     .cart-items-container{
         height: 50px;
