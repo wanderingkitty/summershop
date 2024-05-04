@@ -16,8 +16,8 @@ const CartPage = () => {
 	const [nameError, setNameError] = useState('')
 	const [lastName, setLastname] = useState('')
 	const [lastNameError, setLastNameError] = useState('')
-	const [adress, setAddress] = useState('')
-	const [adressError, setAdressError] = useState('')
+	const [address, setAddress] = useState('')
+	const [addressError, setAddressError] = useState('')
 	const [city, setCity] = useState('')
 	const [cityError, setCityError] = useState('')
 	const [postcode, setPostcode] = useState('')
@@ -34,6 +34,7 @@ const CartPage = () => {
 	const validateEmail = () => {
 		if (email.length === 0) {
 			setEmailError('Please fill in your email.');
+			console.log('Email validation failed');
 			return false;
 		} 
 		setEmailError('');
@@ -43,59 +44,63 @@ const CartPage = () => {
 	const validateName = () => {
 		if (name.length === 0) {
 			setNameError('Please enter your firtsname.');
+			console.log('Name validation failed');
 			return false;
 		} 
 		setNameError('');
 		return true;
 	};
 	
-	const validateLastName = () => {
-		if (lastName.length === 0) {
-			setLastNameError('Please enter your last name.');
-			return false;
-		}
-		setLastNameError('');
-		return true;
-	};
+	// const validateLastName = () => {
+	// 	if (lastName.length === 0) {
+	// 		setLastNameError('Please enter your last name.');
+	// 		return false;
+	// 	}
+	// 	setLastNameError('');
+	// 	return true;
+	// };
 	
-	const validateAdress = () => {
-		if (adress.length === 0) {
-			setAdressError('Please fill in your address.');
+	const validateAddress = () => {
+		if (address.length === 0) {
+			setAddressError('Please fill in your address.');
+			console.log('Address validation failed');
 			return false;
 		}
-		setAdressError('');
+		setAddressError('');
 		return true;
 	};
 	
 	const validateCity = () => {
 		if (city.length === 0) {
 			setCityError('Please fill in your city.');
+			console.log('City validation failed');
 			return false;
 		}
 		setCityError('');
 		return true;
 	};
 	
-	const validatePostcode = () => {
-		if (postcode.length === 0) {
-			setPostcodeError('Please fill in your postcode.');
-			return false;
-		}
-		setPostcodeError('');
-		return true;
-	};
+	// const validatePostcode = () => {
+	// 	if (postcode.length === 0) {
+	// 		setPostcodeError('Please fill in your postcode.');
+	// 		return false;
+	// 	}
+	// 	setPostcodeError('');
+	// 	return true;
+	// };
+	
 	
 	
 	const handleShopSubmit = (event) => {
 		event.preventDefault()
 		const isNameValid = validateName()
-		const isLastNameValid = validateLastName()
+		// const isLastNameValid = validateLastName()
 		const isEmailValid = validateEmail()
-		const isAdressValid = validateAdress()
+		const isAddressValid = validateAddress()
 		const isCityValid = validateCity()
-		const isPostcodeValid = validatePostcode()
+		// const isPostcodeValid = validatePostcode()
 		
-		if (isNameValid && isLastNameValid && isEmailValid && isAdressValid && isPostcodeValid && isCityValid) {
+		if (isNameValid && isEmailValid && isAddressValid && isCityValid) {
 			console.log('thank you, your purchase is being proceed');
 		} else {
 			console.log('please correct errors');
@@ -159,32 +164,39 @@ const CartPage = () => {
 						<input type="text" placeholder="Name*"
 						value={name}
 						onChange={e => setName(e.target.value)}
-						 /> 
-						 {nameError && <p className="error">{nameError}</p>}
-						<input type="text" placeholder="Lastname*"
+						/> 
+						{nameError && <p className="error">{nameError}</p>}
+						{/* <input type="text" placeholder="Lastname*"
 						value={lastName}
 						onChange={e => setLastname(e.target.value)}
-						 />
-						
-						</div>
-						<input type="text" placeholder="Street address*"
-						value={adress}
-						onChange={e => setAddress(e.target.value)}
-						 /> 
-						<input type="text" placeholder="City*"
-						value={city}
-						onChange={e => setCity(e.target.value)} />
-						<input type="text" placeholder="Postcode*" />
-						</div>
-						<p>Total: {totalPrice} kr</p>
-						<button className="confirm-order-btn"   onClick={handleShopSubmit}>Confirm order </button>
-						</section>
-						)}
-						
-						
-						</div>
-						);
-					}
+						/>
+					{lastNameError && <p className="error">{lastNameError}</p>} */}
+					</div>
+					<input type="text" placeholder="Street address*"
+					value={address}
+					onChange={e => setAddress(e.target.value)}
+					/> 
+					{addressError && <p className="error">{addressError}</p>}
+					<input type="text" placeholder="City*"
+					value={city}
+					onChange={e => setCity(e.target.value)}
+					 />
+					{cityError && <p className="error">{cityError}</p>}
+					{/* <input type="text" placeholder="Postcode*"
+					value={postcode}
+					onChange={e => setPostcode(e.target.value)}
+					/>	
+					{postcodeError && <p className="error">{postcodeError}</p>} */}
+					</div>
+					<p>Total: {totalPrice} kr</p>
+					<button className="confirm-order-btn"   onClick={handleShopSubmit}>Confirm order </button>
+					</section>
+					)}
 					
-					export default CartPage;
 					
+					</div>
+					);
+				}
+				
+				export default CartPage;
+				
