@@ -61,7 +61,8 @@ const Root = () => {
 
 <div className="logo-container">
 	<h1>Summer Shop</h1>
-	<NavLink to="/Home"> <img className="logo-header" src={Logo} alt="" /> </NavLink>
+	
+		<NavLink to="/Home"> <img className="logo-header" src={Logo} alt="" /> </NavLink>
 
 		</div>
 		<header>

@@ -20,7 +20,6 @@ const CartPage = () => {
 	const [cityError, setCityError] = useState('')
 	const [purchaseConfirmed, setPurchaseConfirmed] = useState(false);
 
-	const [inputErrorMessege, setInputErrorMessege] = useState('')
 	
 	useEffect(() => {
 		window.scrollTo({
@@ -166,7 +165,7 @@ const CartPage = () => {
 			
 				</div>
 				<p>Total: {totalPrice} kr</p>
-				<button className="confirm-order-btn"   onClick={handleShopSubmit}>Confirm order </button>
+				<button className="confirm-order-btn" onClick={handleShopSubmit}>Confirm order </button>
 				</section>
 				)}
 				

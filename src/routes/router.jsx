@@ -58,6 +58,12 @@ const router = createHashRouter([
 
 		// Inuti Root ska vi klistra in den komponent vars route matchar URL bäst
 		children: [
+
+			{
+                index: true,
+                element: <HomePage />
+            },
+			
 			{
                 path: '/Home',
                 element: <HomePage />
