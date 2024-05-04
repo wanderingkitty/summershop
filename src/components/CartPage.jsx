@@ -14,14 +14,12 @@ const CartPage = () => {
 	const [ emailError, setEmailError] = useState('')
 	const [name, setName] = useState('')
 	const [nameError, setNameError] = useState('')
-	const [lastName, setLastname] = useState('')
-	const [lastNameError, setLastNameError] = useState('')
 	const [address, setAddress] = useState('')
 	const [addressError, setAddressError] = useState('')
 	const [city, setCity] = useState('')
 	const [cityError, setCityError] = useState('')
-	const [postcode, setPostcode] = useState('')
-	const [postcodeError, setPostcodeError] = useState('')
+	const [purchaseConfirmed, setPurchaseConfirmed] = useState(false);
+
 	const [inputErrorMessege, setInputErrorMessege] = useState('')
 	
 	useEffect(() => {
@@ -51,15 +49,6 @@ const CartPage = () => {
 		return true;
 	};
 	
-	// const validateLastName = () => {
-	// 	if (lastName.length === 0) {
-	// 		setLastNameError('Please enter your last name.');
-	// 		return false;
-	// 	}
-	// 	setLastNameError('');
-	// 	return true;
-	// };
-	
 	const validateAddress = () => {
 		if (address.length === 0) {
 			setAddressError('Please fill in your address.');
@@ -80,32 +69,29 @@ const CartPage = () => {
 		return true;
 	};
 	
-	// const validatePostcode = () => {
-	// 	if (postcode.length === 0) {
-	// 		setPostcodeError('Please fill in your postcode.');
-	// 		return false;
-	// 	}
-	// 	setPostcodeError('');
-	// 	return true;
-	// };
-	
-	
-	
 	const handleShopSubmit = (event) => {
 		event.preventDefault()
 		const isNameValid = validateName()
-		// const isLastNameValid = validateLastName()
 		const isEmailValid = validateEmail()
 		const isAddressValid = validateAddress()
 		const isCityValid = validateCity()
-		// const isPostcodeValid = validatePostcode()
 		
 		if (isNameValid && isEmailValid && isAddressValid && isCityValid) {
+			setPurchaseConfirmed(true);
+			useCartStore.getState().clearCart();
 			console.log('thank you, your purchase is being proceed');
 		} else {
 			console.log('please correct errors');
 		}
 	}
+
+	if (purchaseConfirmed) {
+        return (
+            <div className="cart-page-container">
+                <h2>Thank you for your purchase, your order has been confirmed!</h2>
+            </div>
+        );
+    }
 	
 	return (
 		<div className="cart-page-container">
@@ -139,7 +125,6 @@ const CartPage = () => {
 					
 					</div>
 					
-					
 					<hr />
 					
 					</div>
@@ -166,11 +151,7 @@ const CartPage = () => {
 						onChange={e => setName(e.target.value)}
 						/> 
 						{nameError && <p className="error">{nameError}</p>}
-						{/* <input type="text" placeholder="Lastname*"
-						value={lastName}
-						onChange={e => setLastname(e.target.value)}
-						/>
-					{lastNameError && <p className="error">{lastNameError}</p>} */}
+					
 					</div>
 					<input type="text" placeholder="Street address*"
 					value={address}
@@ -180,23 +161,19 @@ const CartPage = () => {
 					<input type="text" placeholder="City*"
 					value={city}
 					onChange={e => setCity(e.target.value)}
-					 />
+					/>
 					{cityError && <p className="error">{cityError}</p>}
-					{/* <input type="text" placeholder="Postcode*"
-					value={postcode}
-					onChange={e => setPostcode(e.target.value)}
-					/>	
-					{postcodeError && <p className="error">{postcodeError}</p>} */}
-					</div>
-					<p>Total: {totalPrice} kr</p>
-					<button className="confirm-order-btn"   onClick={handleShopSubmit}>Confirm order </button>
-					</section>
-					)}
-					
-					
-					</div>
-					);
-				}
+			
+				</div>
+				<p>Total: {totalPrice} kr</p>
+				<button className="confirm-order-btn"   onClick={handleShopSubmit}>Confirm order </button>
+				</section>
+				)}
 				
-				export default CartPage;
 				
+				</div>
+				);
+			}
+			
+			export default CartPage;
+			

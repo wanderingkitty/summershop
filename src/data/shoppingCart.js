@@ -34,6 +34,8 @@ export const useCartStore = create((set) => ({
         }
     }),
 
+	clearCart: () => set({ items: [] })
+
 }));
 	
 // categoryList.js not currently using it
